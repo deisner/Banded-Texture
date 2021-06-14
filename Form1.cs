@@ -37,7 +37,9 @@ namespace Tubes_Demo
 
 
             List<Color> colors = MakeColorList();
-            Material mat = new Material(TextureName, MakeBandedColorBitmap(500, 500, colors));
+            Material mat = new Material(TextureName, MakeBandedColorBitmap(1, colors.Count, colors));
+            mat.MagnifyingFunction = textureFilteringFunctionType.Nearest;
+            mat.MinifyingFunction = textureFilteringFunctionType.Nearest;
             model1.Materials.Add(mat);
 
             pictureBox1.Image = MakeBandedColorBitmap(pictureBox1.Width, pictureBox1.Height, colors);
